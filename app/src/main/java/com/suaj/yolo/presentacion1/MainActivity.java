@@ -29,7 +29,7 @@ import java.io.IOException;
 
 
 public class MainActivity extends ActionBarActivity implements View.OnClickListener {
-
+//holi2
     protected int width;
     protected int height;
     protected int color, colorEraser;
