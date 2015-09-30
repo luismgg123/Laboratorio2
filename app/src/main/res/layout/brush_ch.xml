@@ -1,0 +1,35 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/brushSizeTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/seekBar1"
+        android:layout_marginLeft="29dp"
+        android:layout_marginTop="14dp" />
+    <SeekBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/sbBrushSize"
+        android:layout_gravity="center_horizontal"
+        android:max="100"/>
+
+    <Button
+        android:layout_width="33dp"
+        android:layout_height="34dp"
+        android:id="@+id/btnCloseBrush"
+        android:layout_gravity="right"
+        android:background="#840fc5ff"
+        android:textSize="23dp"
+        android:text="X "
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:textAlignment="center" />
+
+
+</LinearLayout>
