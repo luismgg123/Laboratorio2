@@ -1,6 +1,7 @@
 package com.suaj.yolo.presentacion1;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
@@ -15,6 +16,8 @@ public class Registro extends ActionBarActivity implements View.OnClickListener{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_registro);
 
         edtUsuario = (EditText) findViewById(R.id.edtUsuario);

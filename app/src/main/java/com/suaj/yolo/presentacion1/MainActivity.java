@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -59,6 +60,8 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
 
         DisplayMetrics dm= new DisplayMetrics();
@@ -227,7 +230,20 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
             //CLOSE
             case R.id.button5:
-                finish();
+                AlertDialog.Builder newDialogF = new AlertDialog.Builder(this);
+                newDialogF.setMessage("\u00bf"+"¿Desea Salir del Micropaint?");
+                newDialogF.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+                });
+                newDialogF.setNegativeButton("Cancelar", new DialogInterface.OnClickListener(){
+                    public void onClick(DialogInterface dialog, int which){
+                        dialog.cancel();
+                    }
+                });
+                newDialogF.show();
+
                 break;
 
             //GALERIA
