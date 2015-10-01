@@ -39,7 +39,7 @@ public class MobileArrayAdapter extends ArrayAdapter<String> {
 
 
 
-        if (s.equals("Pikach")) {
+        if (s.equals("Pikachu")) {
             imageView.setImageBitmap(decodeSampledBitmapFromResource(context.getResources(),R.drawable.img1, 100, 100));
         }
 
