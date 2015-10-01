@@ -231,7 +231,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             //CLOSE
             case R.id.button5:
                 AlertDialog.Builder newDialogF = new AlertDialog.Builder(this);
-                newDialogF.setMessage("\u00bf"+"¿Desea Salir del Micropaint?");
+                newDialogF.setMessage("\u00bf"+"Desea Salir del Micropaint?");
                 newDialogF.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         finish();
