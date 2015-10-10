@@ -128,7 +128,7 @@ public class Vista extends View {
 
     //galería
     public void setImage(int numImagen){
-        drawCanvas.drawColor(0, PorterDuff.Mode.CLEAR);
+        drawCanvas.drawColor(Color.WHITE, PorterDuff.Mode.CLEAR);
         Bitmap imagenGaleria=null;
         if(numImagen==1){imagenGaleria = BitmapFactory.decodeResource(getResources(), R.drawable.img1);}
         else if(numImagen==2){imagenGaleria = BitmapFactory.decodeResource(getResources(), R.drawable.img2);}
