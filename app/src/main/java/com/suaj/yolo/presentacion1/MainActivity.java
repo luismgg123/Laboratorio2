@@ -12,6 +12,7 @@ import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.preference.Preference;
 import android.support.v7.app.ActionBarActivity;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -29,7 +30,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 
-public class MainActivity extends ActionBarActivity implements View.OnClickListener {
+public class MainActivity extends ActionBarActivity implements View.OnClickListener  {
 //holi2
     protected int width;
     protected int height;
@@ -50,13 +51,10 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     int progressSize = 3;
     int progressSizeEraser = 30;
 
-    int progressAlpha = 180;
-    int progressRed = 0;
-    int progressGreen = 0;
-    int progressBlue = 0;
 
-    private SeekBar sbBrushSize,sbEraserSize,sbBColorRed,sbBColorGreen,sbBColorBlue,sbBColorAlpha;
-    private TextView brushSizeTxt,eraserSizeText,colorField,bColorRed,bColorGreen,bColorBlue,bColorAlpha;
+
+    private SeekBar sbBrushSize,sbEraserSize;
+    private TextView brushSizeTxt,eraserSizeText;
 
 
     @Override
@@ -388,6 +386,16 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             //PALETA
             case R.id.button3:
 
+                ColorPickerDialog colorPickerDialog = new ColorPickerDialog(this, 0xff00ffff, new ColorPickerDialog.OnColorSelectedListener() {
+
+                    @Override
+                    public void onColorSelected(int color) {
+                       drawView.setColor2(color);
+                    }
+
+                });
+                colorPickerDialog.show();
+
                 break;
 
 
@@ -540,20 +548,6 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         }
         return bmpUri;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }
