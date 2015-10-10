@@ -74,7 +74,7 @@
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="¿Olvidaste tu Contraseña?"
+            android:text="Visita Nuestra Página Web"
             android:id="@+id/txtOlv"
             android:clickable="true"
             android:textColor="#ff72dcff"

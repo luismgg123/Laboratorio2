@@ -6,13 +6,14 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.preference.Preference;
+import android.provider.MediaStore;
 import android.support.v7.app.ActionBarActivity;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -28,6 +29,9 @@ import android.widget.Toast;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.UUID;
 
 
 public class MainActivity extends ActionBarActivity implements View.OnClickListener  {
@@ -42,7 +46,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     protected Canvas scr_canvas;
 
     private Vista drawView;
-    private ImageButton b1,b2,b3,b4,b5,b6,b7;
+    private ImageButton b1,b2,b3,b4,b5,b6,b7, btnsave, btnphoto;
     private ImageButton c1, c2, c3, c4, c5, c6, c7, c8, c9, c10 , c11, c12, c13, c14, c15, c16, c17, c18, c19, c20, c21, c22, c23, c24;
     private Button btnCloseBrush, btnCloseEraser;
 
@@ -87,6 +91,10 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         b4.setOnClickListener(this);
         b5= (ImageButton) findViewById(R.id.button5);
         b5.setOnClickListener(this);
+        btnsave= (ImageButton) findViewById(R.id.btnsave);
+        btnsave.setOnClickListener(this);
+        btnphoto= (ImageButton) findViewById(R.id.btnphoto);
+        btnphoto.setOnClickListener(this);
         b6= (ImageButton) findViewById(R.id.button6);
         b6.setOnClickListener(this);
         b7= (ImageButton) findViewById(R.id.button7);
@@ -422,6 +430,43 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                 newDialogF.show();
 
                 break;
+            //photo
+            case R.id.btnphoto:
+                dispatchTakePictureIntent();
+                galleryAddPic();
+                break;
+            //save
+            case R.id.btnsave:
+                AlertDialog.Builder saveDialog = new AlertDialog.Builder(this);
+                //saveDialog.setTitle("Save drawing");
+                saveDialog.setMessage("¿Desea guardar su dibujo en la galería?");
+                saveDialog.setPositiveButton("Si", new DialogInterface.OnClickListener(){
+                    public void onClick(DialogInterface dialog, int which){
+                        //save drawing
+                        drawView.setDrawingCacheEnabled(true);
+                        String imgSaved = MediaStore.Images.Media.insertImage(
+                                getContentResolver(), drawView.getDrawingCache(),
+                                UUID.randomUUID().toString()+".png", "drawing");
+                        if(imgSaved!=null){
+                            Toast savedToast = Toast.makeText(getApplicationContext(),
+                                    "Dibujo guardado en la galería!", Toast.LENGTH_SHORT);
+                            savedToast.show();
+                        }
+                        else{
+                            Toast unsavedToast = Toast.makeText(getApplicationContext(),
+                                    "Oops! La imagen no pudo ser guardada.", Toast.LENGTH_SHORT);
+                            unsavedToast.show();
+                        }
+                        drawView.destroyDrawingCache();
+                    }
+                });
+                saveDialog.setNegativeButton("Cancelar", new DialogInterface.OnClickListener(){
+                    public void onClick(DialogInterface dialog, int which){
+                        dialog.cancel();
+                    }
+                });
+                saveDialog.show();
+                break;
 
             //GALERIA
             case R.id.button6:
@@ -456,7 +501,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                 final Dialog eraserDialog = new Dialog(this);
                 //final AlertDialog.Builder eraserDialog = new AlertDialog.Builder(this);
                 //AlertDialog.Builder eraserDialog = new AlertDialog.Builder(this);
-                eraserDialog.setTitle("Tamaï¿½o del borrador:");
+                eraserDialog.setTitle("Tama?o del borrador:");
 
 
                 eraserDialog.setContentView(R.layout.eraser_ch);
@@ -514,6 +559,68 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         }
 
 
+
+    }
+
+    String mCurrentPhotoPath;
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_TAKE_PHOTO && resultCode == RESULT_OK) {
+            Bitmap ibitmap = BitmapFactory.decodeFile(mCurrentPhotoPath);
+            drawView.setPhoto(ibitmap);
+        }
+    }
+
+
+
+    private File createImageFile() throws IOException {
+        // Create an image file name
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String imageFileName = "JPEG_" + timeStamp + "_";
+        File storageDir = Environment.getExternalStoragePublicDirectory(
+                Environment.DIRECTORY_PICTURES);
+        File image = File.createTempFile(
+                imageFileName,  /* prefix */
+                ".jpg",         /* suffix */
+                storageDir      /* directory */
+        );
+
+        // Save a file: path for use with ACTION_VIEW intents
+        mCurrentPhotoPath = image.getAbsolutePath();
+        return image;
+    }
+
+
+    static final int REQUEST_TAKE_PHOTO = 1;
+
+    private void dispatchTakePictureIntent() {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        // Ensure that there's a camera activity to handle the intent
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            // Create the File where the photo should go
+            File photoFile = null;
+            try {
+                photoFile = createImageFile();
+            } catch (IOException ex) {
+                // Error occurred while creating the File
+
+            }
+            // Continue only if the File was successfully created
+            if (photoFile != null) {
+                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT,
+                        Uri.fromFile(photoFile));
+                startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
+            }
+        }
+    }
+
+    private void galleryAddPic() {
+        Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+        File f = new File(mCurrentPhotoPath);
+        Uri contentUri = Uri.fromFile(f);
+        mediaScanIntent.setData(contentUri);
+        this.sendBroadcast(mediaScanIntent);
 
     }
 

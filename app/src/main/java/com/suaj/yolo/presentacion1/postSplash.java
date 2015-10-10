@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -114,6 +115,9 @@ public class postSplash extends ActionBarActivity implements View.OnClickListene
                 loginAsyncTask.execute();
                 break;
             case R.id.txtOlv:
+                Uri webpage = Uri.parse("http://http://www.inkadroid.com/inkadroid/webservice/2015/g2/sitioweb%20g2/");
+                Intent webIntent = new Intent(Intent.ACTION_VIEW, webpage);
+                startActivity(webIntent);
                 finish();
                 break;
             case R.id.txtReg:

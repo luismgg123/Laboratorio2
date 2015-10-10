@@ -194,5 +194,14 @@ public class Vista extends View {
         drawCanvas = new Canvas(canvasBitmap);
     }
 
+    public void setPhoto(Bitmap photo){
+        drawCanvas.drawColor(0, PorterDuff.Mode.CLEAR);
+        Bitmap newBitmap=photo;
+        //Bitmap newBitmap=imagenGaleria.copy(Bitmap.Config.ARGB_8888, true);
+        int alturaDibujo=ancho*newBitmap.getHeight()/newBitmap.getWidth();
+        drawCanvas.drawBitmap(getResizedBitmap(newBitmap,ancho,alturaDibujo),0,0,null);
+
+        invalidate();
+    }
 
 }
