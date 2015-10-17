@@ -101,6 +101,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         b7.setOnClickListener(this);
 
 
+
         //colores predefinidos
         c1 = (ImageButton) findViewById(R.id.imageButton);
         c1.setOnClickListener(this);
@@ -332,7 +333,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             case R.id.button2:
                 //defaults
                 drawView.setBrushSize(progressSize);
-                drawView.setColor2(color);
+               // drawView.setColor2(color);
                 //draw button clicked
                 final Dialog brushDialog = new Dialog(this);
                 //final AlertDialog.Builder brushDialog = new AlertDialog.Builder(this);
@@ -439,20 +440,19 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             case R.id.btnsave:
                 AlertDialog.Builder saveDialog = new AlertDialog.Builder(this);
                 //saveDialog.setTitle("Save drawing");
-                saveDialog.setMessage("¿Desea guardar su dibujo en la galería?");
-                saveDialog.setPositiveButton("Si", new DialogInterface.OnClickListener(){
-                    public void onClick(DialogInterface dialog, int which){
+                saveDialog.setMessage("\u00BF "+"Desea guardar su dibujo en la galer" + "\u00ED"+ "a?");
+                saveDialog.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
                         //save drawing
                         drawView.setDrawingCacheEnabled(true);
                         String imgSaved = MediaStore.Images.Media.insertImage(
                                 getContentResolver(), drawView.getDrawingCache(),
-                                UUID.randomUUID().toString()+".png", "drawing");
-                        if(imgSaved!=null){
+                                UUID.randomUUID().toString() + ".png", "drawing");
+                        if (imgSaved != null) {
                             Toast savedToast = Toast.makeText(getApplicationContext(),
-                                    "Dibujo guardado en la galería!", Toast.LENGTH_SHORT);
+                                    "Dibujo guardado en la galer" + "\u00ED"+ "a!", Toast.LENGTH_SHORT);
                             savedToast.show();
-                        }
-                        else{
+                        } else {
                             Toast unsavedToast = Toast.makeText(getApplicationContext(),
                                     "Oops! La imagen no pudo ser guardada.", Toast.LENGTH_SHORT);
                             unsavedToast.show();
@@ -491,6 +491,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
                 break;
 
+
             //BORRADOR
             case R.id.button7:
                 //defaults
@@ -501,7 +502,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                 final Dialog eraserDialog = new Dialog(this);
                 //final AlertDialog.Builder eraserDialog = new AlertDialog.Builder(this);
                 //AlertDialog.Builder eraserDialog = new AlertDialog.Builder(this);
-                eraserDialog.setTitle("Tama?o del borrador:");
+                eraserDialog.setTitle("Tama"+"\u00f1"+ "o del borrador:");
 
 
                 eraserDialog.setContentView(R.layout.eraser_ch);

@@ -35,6 +35,8 @@ public class Vista extends View {
     //ancgo y alto
     int ancho, alto;
 
+    Bitmap v1;
+
     public Vista(Context context, AttributeSet attrs) {
         super(context, attrs);
         definiendo();
@@ -77,6 +79,7 @@ public class Vista extends View {
     public boolean onTouchEvent(MotionEvent event) {
         float touchX = event.getX();
         float touchY = event.getY();
+
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 //Ajuste el comienzo deL siguiente contorno hasta el punto (x, y).
@@ -102,6 +105,7 @@ public class Vista extends View {
         invalidate();
         return true;
     }
+
 
 
     //nueva pintura

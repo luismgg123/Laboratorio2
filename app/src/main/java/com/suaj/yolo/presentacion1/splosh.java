@@ -30,7 +30,7 @@ public class splosh extends Activity {
             public void run() {
 
                 // Start the next activity
-                Intent mainIntent = new Intent().setClass(splosh.this, postSplash.class);
+                Intent mainIntent = new Intent().setClass(splosh.this, MainActivity.class);
                 startActivity(mainIntent);
 
                 // Close the activity so the user won't able to go back this
