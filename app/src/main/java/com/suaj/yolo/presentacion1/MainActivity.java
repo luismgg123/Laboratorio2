@@ -285,6 +285,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                 dispatchTakePictureIntent();
                 galleryAddPic();
                 break;
+
             //save
             case R.id.btnsave:
                 AlertDialog.Builder saveDialog = new AlertDialog.Builder(this);
