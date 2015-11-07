@@ -26,6 +26,9 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -47,7 +50,6 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
     private Vista drawView;
     private ImageButton b1,b2,b3,b4,b5,b6,b7, btnsave, btnphoto;
-    private ImageButton c1, c2, c3, c4, c5, c6, c7, c8, c9, c10 , c11, c12, c13, c14, c15, c16, c17, c18, c19, c20, c21, c22, c23, c24;
     private Button btnCloseBrush, btnCloseEraser;
 
 
@@ -67,6 +69,11 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
+
+        // Buscar AdView como recurso y cargar una solicitud.
+        AdView adView = (AdView)this.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
 
         DisplayMetrics dm= new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
@@ -103,58 +110,6 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
 
         //colores predefinidos
-        c1 = (ImageButton) findViewById(R.id.imageButton);
-        c1.setOnClickListener(this);
-        c2 = (ImageButton) findViewById(R.id.imageButton2);
-        c2.setOnClickListener(this);
-        c3 = (ImageButton) findViewById(R.id.imageButton3);
-        c3.setOnClickListener(this);
-        c4 = (ImageButton) findViewById(R.id.imageButton4);
-        c4.setOnClickListener(this);
-        c5 = (ImageButton) findViewById(R.id.imageButton5);
-        c5.setOnClickListener(this);
-        c6 = (ImageButton) findViewById(R.id.imageButton6);
-        c6.setOnClickListener(this);
-        c7 = (ImageButton) findViewById(R.id.imageButton7);
-        c7.setOnClickListener(this);
-        c8 = (ImageButton) findViewById(R.id.imageButton8);
-        c8.setOnClickListener(this);
-        c9 = (ImageButton) findViewById(R.id.imageButton9);
-        c9.setOnClickListener(this);
-        c10 = (ImageButton) findViewById(R.id.imageButton10);
-        c10.setOnClickListener(this);
-        c11 = (ImageButton) findViewById(R.id.imageButton11);
-        c11.setOnClickListener(this);
-        c12 = (ImageButton) findViewById(R.id.imageButton12);
-        c12.setOnClickListener(this);
-        c13 = (ImageButton) findViewById(R.id.imageButton13);
-        c13.setOnClickListener(this);
-        c14 = (ImageButton) findViewById(R.id.imageButton14);
-        c14.setOnClickListener(this);
-        c15 = (ImageButton) findViewById(R.id.imageButton15);
-        c15.setOnClickListener(this);
-        c16 = (ImageButton) findViewById(R.id.imageButton16);
-        c16.setOnClickListener(this);
-        c17 = (ImageButton) findViewById(R.id.imageButton17);
-        c17.setOnClickListener(this);
-        c18 = (ImageButton) findViewById(R.id.imageButton18);
-        c18.setOnClickListener(this);
-        c19 = (ImageButton) findViewById(R.id.imageButton19);
-        c19.setOnClickListener(this);
-        c20 = (ImageButton) findViewById(R.id.imageButton20);
-        c20.setOnClickListener(this);
-        c21 = (ImageButton) findViewById(R.id.imageButton21);
-        c21.setOnClickListener(this);
-        c22 = (ImageButton) findViewById(R.id.imageButton22);
-        c22.setOnClickListener(this);
-        c23 = (ImageButton) findViewById(R.id.imageButton23);
-        c23.setOnClickListener(this);
-        c24 = (ImageButton) findViewById(R.id.imageButton24);
-        c24.setOnClickListener(this);
-
-
-
-
 
 
 
@@ -202,113 +157,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         switch(view.getId()){
 
 
-            //PALETA FIJA
 
-            case R.id.imageButton:
-                drawView.setColor("#ff0000");
-                break;
-
-            case R.id.imageButton2:
-                drawView.setColor("#ff8000");
-                break;
-
-            case R.id.imageButton3:
-                drawView.setColor("#ffff00");
-                break;
-
-            case R.id.imageButton4:
-                drawView.setColor("#80ff00");
-                break;
-
-            case R.id.imageButton5:
-                drawView.setColor("#00ff00");
-                break;
-
-            case R.id.imageButton6:
-                drawView.setColor("#00ff80");
-                break;
-
-            case R.id.imageButton7:
-
-                drawView.setColor("#00cccc");
-                break;
-
-            case R.id.imageButton8:
-                drawView.setColor("#0080ff");
-                break;
-
-            case R.id.imageButton9:
-                drawView.setColor("#0000ff");
-                break;
-
-            case R.id.imageButton10:
-                drawView.setColor("#7f00ff");
-                break;
-
-            case R.id.imageButton11:
-                drawView.setColor("#ff00ff");
-
-                break;
-
-            case R.id.imageButton12:
-                drawView.setColor("#ff007f");
-
-                break;
-
-            case R.id.imageButton13:
-                drawView.setColor("#ffcc99");
-
-                break;
-
-            case R.id.imageButton14:
-                drawView.setColor("#A89703");
-
-                break;
-
-            case R.id.imageButton15:
-                drawView.setColor("#663300");
-
-                break;
-
-            case R.id.imageButton16:
-                drawView.setColor("#a0a0a0");
-                break;
-
-            case R.id.imageButton17:
-                drawView.setColor("#000000");
-
-                break;
-
-            case R.id.imageButton18:
-                drawView.setColor("#ffffff");
-                break;
-
-            case R.id.imageButton19:
-                drawView.setColor("#003333");
-                break;
-
-            case R.id.imageButton20:
-                drawView.setColor("#660000");
-                break;
-
-            case R.id.imageButton21:
-                drawView.setColor("#190033");
-
-                break;
-
-            case R.id.imageButton22:
-                drawView.setColor("#202020");
-
-                break;
-
-            case R.id.imageButton23:
-                drawView.setColor("#006600");
-
-                break;
-
-            case R.id.imageButton24:
-                drawView.setColor("#ff6666");
-                break;
 
 
             //NUEVO
