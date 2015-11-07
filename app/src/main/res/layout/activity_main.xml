@@ -4,19 +4,20 @@
     android:paddingRight="0dp"
     android:paddingTop="0dp"
     android:paddingBottom="0dp"
-    tools:context="com.suaj.yolo.presentacion1.MainActivity">
+    tools:context="com.suaj.yolo.presentacion1.MainActivity"
+    android:background="#36404917">
 <HorizontalScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:background="#b9b8a4"
+    android:background="@android:color/transparent"
     android:id="@+id/horizontalScrollView">
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:orientation="horizontal"
-        android:background="#b9b8a4">
+        android:background="#54c8c548">
         <ImageButton
             android:id="@+id/button1"
             android:layout_width="wrap_content"
@@ -141,233 +142,7 @@
                 android:id="@+id/dibujando"
                 android:layout_centerHorizontal="true"
                 android:layout_below="@+id/horizontalScrollView"
-                android:background="#ffffff"
-                android:layout_above="@+id/horizontalScrollView2" />
-
-            <HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:background="#b9b8a4"
-                android:id="@+id/horizontalScrollView2"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="false"
-                android:visibility="visible">
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="fill_parent"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true">
-
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent">
-
-                        <ImageButton
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_margin="2dp"
-                            android:id="@+id/imageButton"
-                            android:src="@drawable/iconito"
-                            android:background="#ff0000" />
-
-                        <ImageButton
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_margin="2dp"
-                            android:id="@+id/imageButton2"
-                            android:src="@drawable/iconito"
-                            android:background="#ff8000" />
-
-                        <ImageButton
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_margin="2dp"
-                            android:id="@+id/imageButton3"
-                            android:src="@drawable/iconito"
-                            android:background="#ffff00" />
-
-                        <ImageButton
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_margin="2dp"
-                            android:id="@+id/imageButton4"
-                            android:src="@drawable/iconito"
-                            android:background="#80ff00" />
-
-                        <ImageButton
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_margin="2dp"
-                            android:id="@+id/imageButton5"
-                            android:src="@drawable/iconito"
-                            android:background="#00ff00" />
-
-                        <ImageButton
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_margin="2dp"
-                            android:id="@+id/imageButton6"
-                            android:src="@drawable/iconito"
-                            android:background="#00ff80" />
-
-                        <ImageButton
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_margin="2dp"
-                            android:id="@+id/imageButton7"
-                            android:src="@drawable/iconito"
-                            android:background="#00cccc" />
-
-                        <ImageButton
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_margin="2dp"
-                            android:id="@+id/imageButton8"
-                            android:src="@drawable/iconito"
-                            android:background="#0080ff" />
-
-                        <ImageButton
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_margin="2dp"
-                            android:id="@+id/imageButton9"
-                            android:src="@drawable/iconito"
-                            android:background="#0000ff" />
-
-                        <ImageButton
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_margin="2dp"
-                            android:id="@+id/imageButton10"
-                            android:src="@drawable/iconito"
-                            android:background="#7f00ff" />
-
-                        <ImageButton
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_margin="2dp"
-                            android:id="@+id/imageButton11"
-                            android:src="@drawable/iconito"
-                            android:background="#ff00ff" />
-
-                        <ImageButton
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_margin="2dp"
-                            android:id="@+id/imageButton12"
-                            android:src="@drawable/iconito"
-                            android:background="#ff007f" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent">
-
-                        <ImageButton
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_margin="2dp"
-                            android:id="@+id/imageButton13"
-                            android:src="@drawable/iconito"
-                            android:background="#ffcc99" />
-
-                        <ImageButton
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_margin="2dp"
-                            android:id="@+id/imageButton14"
-                            android:src="@drawable/iconito"
-                            android:background="#A89703" />
-
-                        <ImageButton
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_margin="2dp"
-                            android:id="@+id/imageButton15"
-                            android:src="@drawable/iconito"
-                            android:background="#663300" />
-
-                        <ImageButton
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_margin="2dp"
-                            android:id="@+id/imageButton16"
-                            android:src="@drawable/iconito"
-                            android:background="#a0a0a0" />
-
-                        <ImageButton
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_margin="2dp"
-                            android:id="@+id/imageButton17"
-                            android:src="@drawable/iconito"
-                            android:background="#000000" />
-
-                        <ImageButton
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_margin="2dp"
-                            android:id="@+id/imageButton18"
-                            android:src="@drawable/iconito"
-                            android:background="#ffffff" />
-
-                        <ImageButton
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_margin="2dp"
-                            android:id="@+id/imageButton19"
-                            android:src="@drawable/iconito"
-                            android:background="#003333" />
-
-                        <ImageButton
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_margin="2dp"
-                            android:id="@+id/imageButton20"
-                            android:src="@drawable/iconito"
-                            android:background="#660000" />
-
-                        <ImageButton
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_margin="2dp"
-                            android:id="@+id/imageButton21"
-                            android:src="@drawable/iconito"
-                            android:background="#190033" />
-
-                        <ImageButton
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_margin="2dp"
-                            android:id="@+id/imageButton22"
-                            android:src="@drawable/iconito"
-                            android:background="#202020" />
-
-                        <ImageButton
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_margin="2dp"
-                            android:id="@+id/imageButton23"
-                            android:src="@drawable/iconito"
-                            android:background="#006600" />
-
-                        <ImageButton
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_margin="2dp"
-                            android:id="@+id/imageButton24"
-                            android:src="@drawable/iconito"
-                            android:background="#ff6666" />
-                    </LinearLayout>
-
-                </LinearLayout>
-            </HorizontalScrollView>
+                android:background="#ffffff" />
 
 
-        </RelativeLayout>
+</RelativeLayout>
