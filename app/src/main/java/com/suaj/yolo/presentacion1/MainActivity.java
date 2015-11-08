@@ -275,9 +275,9 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
             //CLOSE
             case R.id.button5:
-                AlertDialog.Builder newDialogF = new AlertDialog.Builder(this);
+                final AlertDialog.Builder newDialogF = new AlertDialog.Builder(this);
                 newDialogF.setMessage("\u00bf"+"Desea guardar antes de salir?");
-                newDialogF.setPositiveButton("S"+ "\u00ED", new DialogInterface.OnClickListener() {
+                newDialogF.setPositiveButton("S" + "\u00ED", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
 
                         drawView.setDrawingCacheEnabled(true);
@@ -289,11 +289,21 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                         finish();
                     }
                 });
-                newDialogF.setNegativeButton("No", new DialogInterface.OnClickListener(){
-                    public void onClick(DialogInterface dialog, int which){
+                newDialogF.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
                         finish();
                     }
                 });
+
+                newDialogF.setNeutralButton("Cancelar", new DialogInterface.OnClickListener(){
+                   public void onClick(DialogInterface dialog, int which){
+                       dialog.cancel();
+                   }
+
+                });
+
+
+
                 newDialogF.show();
 
                 break;
